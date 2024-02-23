@@ -1,8 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int search(int numbers[], int low, int high, int value) 
 {
-	return -1;
+	//Terminating case 
+	//(when the search meets in the middle and does not find a value it terminates)
+	if(low == high)
+	{
+		return -1;
+	}
+
+	//Checks if the index matches the value
+	if(numbers[low] == value)
+	{
+		return low;
+	}
+	else if(numbers[high] == value)
+	{
+		return high;
+	}
+	else //Driver code that pushes the lower and upper bound of the numbers array
+	{
+		search(numbers, low + 1, high - 1, value);
+	}
+
 }
 
 void printArray(int numbers[], int sz)
